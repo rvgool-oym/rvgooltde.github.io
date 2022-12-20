@@ -17,6 +17,25 @@
       player.on('volumechange', function() {
         window.ReactNativeWebView.postMessage("playerVolumeChanged!");
       });
+
+      // Listen messages received
+      document.addEventListener("message", (event) => {
+        const message = event.data;
+        handleMessages(message);
+      })
+
+      // Handle messages
+      function handleMessages(message) {
+        const messageCallbacks = {
+          "keepPlaying": handleKeepPlaying,
+        }
+  
+        messageCallbacks[message]();
+      }
+      
+      function handleKeepPlaying() {
+        player.play();
+	  }
 	</script>
 	</body>
 </html>
