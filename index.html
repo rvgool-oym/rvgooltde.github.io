@@ -7,15 +7,15 @@
       var player = new Vimeo.Player(iframe);
       
       player.on('play', function() {
-        window.ReactNativeWebView.postMessage("playerPlaying!");
+        window.ReactNativeWebView.postMessage("playerPlaying");
       });
 
       player.on('pause', function() {
-        window.ReactNativeWebView.postMessage("playerPaused!");
+        window.ReactNativeWebView.postMessage("playerPaused");
       });
       
       player.on('volumechange', function() {
-        window.ReactNativeWebView.postMessage("playerVolumeChanged!");
+        window.ReactNativeWebView.postMessage("playerVolumeChanged");
       });
 
       // Listen messages received
